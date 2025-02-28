@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Gestionar Usuarios</title>
+    <link rel="stylesheet" href="/css/estilo_gestion.css">
+</head>
+<body>
+    
+
+    <div class="menu-container">
+        <button class="menu-boton" onclick="toggleMenu()">
+            &#9776; Menú
+        </button>
+        <img src="/imagenes/logo.jpg" alt="logo" class="menu-imagen">
+        <span class="nombre_esc">Colegio Provincial Dr Ernesto</span>
+        <div id="menu" class="menu">
+            <a href="/pagdeinicio">Inicio</a>
+            
+            <% if (usuario.tipo_usuario_id !== 3) { %>
+                <a href="/notas">Notas</a>
+            <% } %>
+            
+            <a href="/perfil">Perfil</a>
+            
+            <% if (usuario.tipo_usuario_id !== 1) { %>
+                <a href="/gestionar">Gestionar Alumnos</a>
+            <% } %>
+
+            <% if (usuario.tipo_usuario_id !== 1) { %>
+                <a href="/vernotas">Ver Notas puestas</a>
+            <% } %>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
+    </script> 
+
+
+
+
+<div class="botonera-rectangulo">
+    <header class="header">
+        <h1>Elige el curso</h1>
+    </header>
+
+    <% curso.forEach(c => { %>
+        <a href="materias/<%= c.curso_id%>"><button><%= c.nombre_curso %></button></a>
+    <% }) %>
+</div>
+
+</body>
+</html>

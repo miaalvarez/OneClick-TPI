@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+    <title>Perfil</title>
+    <link rel="stylesheet" href="/css/estilos_pagperfil.css">
+</head>
+<body>
+    
+    <div class="menu-container">
+        <button class="menu-boton" onclick="toggleMenu()">
+            &#9776; Menú
+        </button>
+        <img src="/imagenes/logo.jpg" alt="logo" class="menu-imagen">
+        <span class="nombre_esc">Colegio Provincial Dr Ernesto</span>
+        <div id="menu" class="menu">
+            <a href="/pagdeinicio">Inicio</a>
+            
+            <% if (usuario.tipo_usuario_id !== 3) { %>
+                <a href="/notas">Notas</a>
+            <% } %>
+            
+            <a href="/perfil">Perfil</a>
+            
+            <% if (usuario.tipo_usuario_id !== 1) { %>
+                <a href="/gestionar">Gestionar Alumnos</a>
+            <% } %>
+
+            <% if (usuario.tipo_usuario_id !== 1) { %>
+                <a href="/vernotas">Ver Notas puestas</a>
+            <% } %>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
+
+    </script>
+
+<section style="margin-top: -450px;" class="perfil">
+    <h2>Ver Perfil</h2>
+    <div  class="perfil-info">
+        <form  id="form-perfil">
+            <label for="nombre">Nombre y apellido: </label>
+            <input type="text" id="nombre" name="nombre" value="<%= usuario.nombre %>" readonly>
+
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" name="correo" value="<%= usuario.correo %>" readonly>
+
+            <label for="dni">DNI</label>
+            <input type="text" id="dni" name="dni" value="<%= usuario.id %>" readonly>
+        </form>
+    </div>
+</section>
+
+
+            <div style="margin-top: -450px;" class="boton-cerrarsession">
+                <form action="/cerrar-sesion" method="POST">
+                    <button type="submit">Cerrar Sesión</button>
+                </form>
+            </div>
+
+</body>
+</html>

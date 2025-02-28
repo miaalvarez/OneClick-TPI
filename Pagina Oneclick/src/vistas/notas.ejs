@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Seleccionar curso</title>
+    <link rel="stylesheet" href="/css/estilos_pagnotas.css">
+</head>
+<body>
+
+<div class="menu-container">
+    <button class="menu-boton" onclick="toggleMenu()">
+        &#9776; Menú
+    </button>
+    <img src="/imagenes/logo.jpg" alt="logo" class="menu-imagen">
+    <span class="nombre_esc">Colegio Provincial Dr Ernesto</span>
+    <div id="menu" class="menu">
+      <a href="/pagdeinicio">Inicio</a>
+      
+      <% if (usuario.tipo_usuario_id !== 3) { %>
+          <a href="/notas">Notas</a>
+      <% } %>
+      
+      <a href="/perfil">Perfil</a>
+      
+      <% if (usuario.tipo_usuario_id !== 1) { %>
+          <a href="/gestionar">Gestionar Alumnos</a>
+      <% } %>
+  </div>
+</div>
+
+<script>
+    function toggleMenu() {
+        var menu = document.getElementById('menu');
+        if (menu.style.display === 'block') {
+            menu.style.display = 'none';
+        } else {
+            menu.style.display = 'block';
+        }
+    }
+</script>
+
+<table style="margin-top: -600px;">
+    <tbody>
+        <tr>
+          <td colspan="12">COLEGIO PROVINCIAL DR. ERNESTO GUEVARA</td>
+        </tr>
+        <tr>
+          <td colspan="2">Apellido y nombre:</td>
+          <td colspan="2"><%= usuario.nombre %> <%= usuario.apellido %></td>
+          <td colspan="2">Curso:</td>
+          <td colspan="2"><%= usuario.curso.nombre_curso %></td>
+          <td colspan="2">Año:</td>
+          <td colspan="2">2024</td>
+        </tr>
+        <!-- Ciclo de materias -->
+        <tr>
+          <td colspan="2">Ciclo Superior de la ESO</td>
+          <% usuario.curso.materias.forEach((materia) => { %>
+          <td><%= materia.nombre_materia %></td>
+          <% }) %>
+        </tr>
+
+        <!-- Primer cuatrimestre -->
+        <tr>
+          <td rowspan="3">Primer cuatrimestre</td>
+          <td>1° informe</td>
+          <% usuario.curso.materias.forEach((materia) => { %>
+          <td>
+            <%= materia.notas.find(n => n.cuatrimestre === 1 && n.informe ===
+            1)?.nota || '-' %>
+          </td>
+          <% }) %>
+        </tr>
+        <tr>
+          <td>2° informe</td>
+          <% usuario.curso.materias.forEach((materia) => { %>
+          <td>
+            <%= materia.notas.find(n => n.cuatrimestre === 1 && n.informe ===
+            2)?.nota || '-' %>
+          </td>
+          <% }) %>
+        </tr>
+        <tr>
+          <td>NOTA</td>
+          <% usuario.curso.materias.forEach((materia) => { %>
+          <td>
+            <%= materia.notas.find(n => n.cuatrimestre === 1 && n.informe ===
+            3)?.nota || '-' %>
+          </td>
+          <% }) %>
+        </tr>
+
+        <!-- Segundo cuatrimestre -->
+        <tr>
+          <td rowspan="3">Segundo cuatrimestre</td>
+          <td>1° informe</td>
+          <% usuario.curso.materias.forEach((materia) => { %>
+          <td>
+            <%= materia.notas.find(n => n.cuatrimestre === 2 && n.informe ===
+            1)?.nota || '-' %>
+          </td>
+          <% }) %>
+        </tr>
+        <tr>
+          <td>2° informe</td>
+          <% usuario.curso.materias.forEach((materia) => { %>
+          <td>
+            <%= materia.notas.find(n => n.cuatrimestre === 2 && n.informe ===
+            2)?.nota || '-' %>
+          </td>
+          <% }) %>
+        </tr>
+        <tr>
+          <td>NOTA</td>
+          <% usuario.curso.materias.forEach((materia) => { %>
+          <td>
+            <%= materia.notas.find(n => n.cuatrimestre === 2 && n.informe ===
+            3)?.nota || '-' %>
+          </td>
+          <% }) %>
+        </tr>
+      </tbody>
+</table>
+
+</body>
+</html>

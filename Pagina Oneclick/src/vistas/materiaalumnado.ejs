@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Gestion ver notas</title>
+    <link rel="stylesheet" href="/css/materiaalumnado.css">
+</head>
+<body>
+    
+
+    <div class="menu-container">
+        <button class="menu-boton" onclick="toggleMenu()">
+            &#9776; Menú
+        </button>
+        <img src="/imagenes/logo.jpg" alt="logo" class="menu-imagen">
+        <span class="nombre_esc">Colegio Provincial Dr Ernesto</span>
+        <div id="menu" class="menu">
+            <a href="/pagdeinicio">Inicio</a>
+            
+            <% if (usuario.tipo_usuario_id !== 3) { %>
+                <a href="/notas">Notas</a>
+            <% } %>
+            
+            <a href="/perfil">Perfil</a>
+            
+            <% if (usuario.tipo_usuario_id !== 1) { %>
+                <a href="/gestionar">Gestionar Alumnos</a>
+            <% } %>
+
+            <% if (usuario.tipo_usuario_id !== 1) { %>
+                <a href="/vernotas">Ver Notas puestas</a>
+            <% } %>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
+    </script> 
+
+
+
+
+<div  style="margin-top: -450px;" class="botonera-rectangulo">
+    <header class="header">
+        <h1>Elige la materia</h1>
+    </header>
+
+    <% curso.materias.forEach(materia => { %>
+        <a href="/notaspuestas/<%= curso.curso_id %>/materia/<%= materia.materia_id %>"><button><%= materia.nombre_materia %></button></a>
+    <% }) %>
+</div>
+
+</body>
+</html>

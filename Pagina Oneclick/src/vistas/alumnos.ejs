@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alumnos</title>
+    <link rel="stylesheet" href="/css/estilo_alumnos.css">
+</head>
+<body>
+    
+    <!-- Menú de navegación -->
+    <div class="menu-container">
+        <button class="menu-boton" onclick="toggleMenu()">
+            &#9776; Menú
+        </button>
+        <img src="/imagenes/logo.jpg" alt="logo" class="menu-imagen">
+        <span class="nombre_esc">Colegio Provincial Dr Ernesto</span>
+        <div id="menu" class="menu">
+            <a href="/pagdeinicio">Inicio</a>
+            
+            
+            <a href="/perfil">Perfil</a>
+            
+                <a href="/gestionar">Gestionar Alumnos</a>
+
+                <a href="/vernotas">Ver Notas puestas</a>
+
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+        }
+    </script> 
+
+    <!-- Tabla de notas -->
+    <div  style="margin-top: -600px;" class="tabla-wrapper">
+        <div class="container">
+            <h1 class="titulo">Gestión de Notas</h1>
+            <form action="/curso/<%= cursoId %>/materia/<%= materia.materia_id %>" method="POST">
+                <table class="tabla">
+                    <thead>
+                        <tr>
+                            <th>Nombre del Alumno</th>
+                            <th>Cuatrimestre</th>
+                            <th>Instancia</th>
+                            <th>Nota</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% alumnos.forEach(alumno => { %>
+                        <tr>
+                            <td><%= alumno.nombre %></td>
+                            <!-- Campo oculto para enviar el persona_id -->
+                            <input type="hidden" name="persona_id_<%= alumno.persona_id %>" value="<%= alumno.persona_id %>">
+
+                            <td>
+                                <select name="nota_<%= alumno.persona_id %>[cuatrimestre]" required>
+                                    <option value="1">Primer Cuatrimestre</option>
+                                    <option value="2">Segundo Cuatrimestre</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select name="nota_<%= alumno.persona_id %>[instancia]" required>
+                                    <option value="1">Primer Informe</option>
+                                    <option value="2">Segundo Informe</option>
+                                    <option value="3">Nota Final</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="number" name="nota_<%= alumno.persona_id %>[nota]" placeholder="Ingrese nota" min="0" max="10" required value="<%= alumno.nota || '' %>">
+                            </td>
+                        </tr>
+                        <% }); %>
+                        <tr>
+                            <td colspan="4" class="button-cell">
+                                <button type="submit" class="guardar-btn">Guardar Notas</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

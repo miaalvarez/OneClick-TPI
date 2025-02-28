@@ -1,0 +1,145 @@
+.menu-container {
+    position: fixed;
+    top: 0;
+    right: 0px;
+    left: 0;
+    width: calc(100% 0px);
+    background-color:#1a1a1a;
+    padding: 1px;
+}
+
+.menu-boton {
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px;  /* Ajusta este valor para bajar la imagen */
+}
+
+@media (max-width: 768px) { /* Ajuste para pantallas pequeñas */
+    .menu-boton {
+        max-width: 60px;  /* Aumenta el tamaño en dispositivos móviles */
+    }
+}
+
+.menu {
+    display: none;
+    text-align: right;
+    clear: both;
+    margin-right: 10px;
+}
+
+.menu a {
+    display: block;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.menu-imagen {
+    max-width: 4%; 
+    height: auto; 
+    float: left;
+    margin-bottom: 10px;
+    margin-top: 15px;  /* Ajusta este valor para bajar la imagen */
+}
+
+
+@media (max-width: 768px) { /* Ajuste para pantallas pequeñas */
+    .menu-imagen {
+        max-width: 60px;  /* Aumenta el tamaño en dispositivos móviles */
+    }
+}
+
+.nombre_esc {
+    color: white;
+    font-size: 2.5vw; /* Tamaño responsive basado en el ancho de la ventana */
+    padding: 20px;    /* Espaciado ajustado */
+    text-align: center; /* Centra el texto */
+    float: left;      /* Evita que flote, mejora en pantallas pequeñas */
+    margin: 0;        /* Elimina márgenes fijos */
+}
+
+@media (max-width: 768px) { /* Ajuste para pantallas pequeñas */
+    .nombre_esc {
+        font-size: 5vw; /* Aumenta el tamaño en dispositivos móviles */
+    }
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 150vh; 
+    background-color: #f4f4f4;
+    margin-top: 100px; 
+}
+
+
+.perfil {
+    margin: 20px;
+    padding: 20px;
+    background-color: #fff; 
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-top: -150px;
+}
+
+.boton-cerrarsession {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    height: 100%; /* Asegura que el contenedor tenga altura suficiente para centrar el contenido */
+    padding-top: 50px; /* Espaciado desde el top, ajustable según lo necesites */
+    margin-top: -150px;
+}
+
+.boton-cerrarsession button {
+    background-color: transparent;
+    color: #ff4b4b; /* Color de texto rojo */
+    border: 2px solid #ff4b4b; /* Borde rojo */
+    padding: 10px 20px; /* Ajusta el tamaño del botón */
+    border-radius: 5px; /* Borde redondeado */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.boton-cerrarsession button:hover {
+    background-color: #ff4b4b; /* Fondo rojo al pasar el ratón */
+    color: white; /* Texto blanco */
+    border: 2px solid #c92c2c; /* Borde más oscuro cuando se pasa el ratón */
+}
+
+
+.perfil-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 440px;
+}
+
+label {
+    margin-top: 50px;
+}
+
+
+input {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+

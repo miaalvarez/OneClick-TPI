@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Gestion ver notas</title>
+    <link rel="stylesheet" href="/css/notaspuesta.css">
+</head>
+<body>
+    
+
+    <div class="menu-container">
+        <button class="menu-boton" onclick="toggleMenu()">
+            &#9776; Menú
+        </button>
+        <img src="/imagenes/logo.jpg" alt="logo" class="menu-imagen">
+        <span class="nombre_esc">Colegio Provincial Dr Ernesto</span>
+        <div id="menu" class="menu">
+            <a href="/pagdeinicio">Inicio</a>
+            
+            <% if (usuario.tipo_usuario_id !== 3) { %>
+                <a href="/notas">Notas</a>
+            <% } %>
+            
+            <a href="/perfil">Perfil</a>
+            
+            <% if (usuario.tipo_usuario_id !== 1) { %>
+                <a href="/gestionar">Gestionar Alumnos</a>
+            <% } %>
+
+            <% if (usuario.tipo_usuario_id !== 1) { %>
+                <a href="/vernotas">Ver Notas puestas</a>
+            <% } %>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
+    </script> 
+
+
+
+<main class="main-content">
+    <h1><%= curso.nombre_curso %> - <%= materia.nombre_materia %></h1>
+    <h2>Notas por Alumno</h2>
+
+    <table class="students-table">
+      <thead>
+        <tr>
+          <th>Alumno</th>
+          <th>1er Cuatrimestre - Informe 1</th>
+          <th>1er Cuatrimestre - Informe 2</th>
+          <th>2do Cuatrimestre - Informe 1</th>
+          <th>2do Cuatrimestre - Informe 2</th>
+          <th>Nota Final</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% alumnos.forEach((alumno) => { %>
+          <tr>
+            <td><%= alumno.nombre %></td>
+            <td>
+              <%= alumno.notas.find(
+                (n) => n.cuatrimestre === 1 && n.informe === 1
+              )?.nota || "-" %>
+            </td>
+            <td>
+              <%= alumno.notas.find(
+                (n) => n.cuatrimestre === 1 && n.informe === 2
+              )?.nota || "-" %>
+            </td>
+            <td>
+              <%= alumno.notas.find(
+                (n) => n.cuatrimestre === 2 && n.informe === 1
+              )?.nota || "-" %>
+            </td>
+            <td>
+              <%= alumno.notas.find(
+                (n) => n.cuatrimestre === 2 && n.informe === 2
+              )?.nota || "-" %>
+            </td>
+            <td>
+              <%= alumno.notas.find(
+                (n) => n.informe === 3
+              )?.nota || "-" %>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </main>
+
+
+</body>
+</html>

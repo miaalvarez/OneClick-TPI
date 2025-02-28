@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Pagina de Inicio</title>
+    <link rel="stylesheet" href="/css/estilos_paginicio.css">
+</head>
+<body>
+
+
+    <div class="menu-container">
+        <button class="menu-boton" onclick="toggleMenu()">
+            &#9776; Menú
+        </button>
+        <img src="/imagenes/logo.jpg" alt="logo" class="menu-imagen">
+        <span class="nombre_esc">Colegio Provincial Dr Ernesto</span>
+        <div id="menu" class="menu">
+            <a href="/pagdeinicio">Inicio</a>
+            
+            <% if (usuario.tipo_usuario_id !== 3) { %>
+                <a href="/notas">Notas</a>
+            <% } %>
+            
+            <a href="/perfil">Perfil</a>
+            
+            <% if (usuario.tipo_usuario_id !== 1) { %>
+                <a href="/gestionar">Gestionar Alumnos</a>
+            <% } %>
+
+            <% if (usuario.tipo_usuario_id !== 1) { %>
+                <a href="/vernotas">Ver Notas puestas</a>
+            <% } %>
+        </div>
+        
+
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+            } else {
+                menu.style.display = 'block';
+            }
+        }
+    </script> 
+
+<footer class="footer">
+    <a href="https://www.google.com.ar/maps/place/Colegio+Provincial+Dr.+Ernesto+Guevara/@-53.8016332,-67.7566587,17z/data=!3m1!4b1!4m6!3m5!1s0xbc4b166400858a59:0xc2dc84ca26547d6a!8m2!3d-53.8016364!4d-67.7540838!16s%2Fg%2F11c3tqltk2?entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D"  target="_blank">
+        <img src="/imagenes/mapa-icono.png"  alt="Ubicación Colegio Guevara" style="width: 26px; height: 26px;">
+        Ubicación
+    </a>
+
+    <a href="https://www.facebook.com/colegioguevara/?locale=es_LA"  target="_blank">
+        <img src="/imagenes/facebook.png" alt="facebook Colegio Guevara" style="width: 26px; height: 26px;">
+        Facebook
+    </a>
+
+    <a href="https://www.instagram.com/cpdeg_tecnica/"  target="_blank">
+        <img src="/imagenes/10462345.png" alt="Instagram Colegio Guevara" style="width: 29px; height: 29px;">
+        Instagram
+    </a>
+</footer>
+
+
+
+<div class="bienvenida">
+    <div class="bienvenida-box">
+        <h1>¡Bienvenido a la pagina del colegio Guevara!</h1>
+        <p>Estamos encantados de tenerte aquí. En esta web vas a poder ver tus notas.</p>
+    </div>
+    <img src="/imagenes/fotoescuela.jpg" alt="Imagen de Presentación" class="foto_presentacion">
+</div>
+
+</body>
+</html> 
