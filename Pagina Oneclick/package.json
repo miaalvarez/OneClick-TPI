@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Lucasdiaz010/TPI-2024.git"
+    "url": "git+https://github.com/miaalvarez/OneClick-TPI/tree/main/Pagina%20Oneclick"
   },
-  "author": "luvin01",
+  "author": "mia",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Lucasdiaz010/TPI-2024/issues"
+    "url": "https://github.com/miaalvarez/OneClick-TPI/tree/main/Pagina%20Oneclicks"
   },
-  "homepage": "https://github.com/Lucasdiaz010/TPI-2024#readme",
+  "homepage": "https://github.com/miaalvarez/OneClick-TPI/tree/main/Pagina%20Oneclick",
   "description": "",
   "dependencies": {
     "bcrypt": "^5.1.1",
