@@ -1,0 +1,180 @@
+.menu-container {
+    position: fixed;
+    top: 0;
+    right: 0px;
+    left: 0;
+    width: calc(100% 0px);
+    background-color:#1a1a1a;
+    padding: 1px;
+}
+
+.menu-boton {
+    background-color: #1a1a1a;
+    color: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px;  /* Ajusta este valor para bajar la imagen */
+}
+
+@media (max-width: 768px) { /* Ajuste para pantallas pequeñas */
+    .menu-boton {
+        max-width: 60px;  /* Aumenta el tamaño en dispositivos móviles */
+    }
+}
+
+.menu {
+    display: none;
+    text-align: right;
+    clear: both;
+    margin-right: 10px;
+}
+
+.menu a {
+    display: block;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) { /* Ajuste para pantallas pequeñas */
+    .menu a {
+        max-width: 60px;  /* Aumenta el tamaño en dispositivos móviles */
+    }
+}
+
+.menu-imagen {
+    max-width: 4%; 
+    height: auto; 
+    float: left;
+    margin-bottom: 10px;
+    margin-top: 15px;  /* Ajusta este valor para bajar la imagen */
+}
+
+
+@media (max-width: 768px) { /* Ajuste para pantallas pequeñas */
+    .menu-imagen {
+        max-width: 40px;  /* Aumenta el tamaño en dispositivos móviles */
+    }
+}
+
+.nombre_esc {
+    color: white;
+    font-size: 2.5vw; /* Tamaño responsive basado en el ancho de la ventana */
+    padding: 20px;    /* Espaciado ajustado */
+    text-align: center; /* Centra el texto */
+    float: left;      /* Evita que flote, mejora en pantallas pequeñas */
+    margin: 0;        /* Elimina márgenes fijos */
+}
+
+@media (max-width: 768px) { /* Ajuste para pantallas pequeñas */
+    .nombre_esc {
+        font-size: 5vw; /* Aumenta el tamaño en dispositivos móviles */
+    }
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150vh; 
+    background-color: #f4f4f4;
+    margin-top: 100px; 
+}
+
+
+.tabla-wrapper {
+    margin-top: 200px; /* Ajusta este valor para bajar la tabla */
+    display: flex;
+    justify-content: center;
+    width: 100%; /* Ancho al 100% */
+    margin-top: 250px; /* Espacio superior para no estar detrás del menú */
+}
+
+@media (max-width: 768px) { /* Ajuste para pantallas pequeñas */
+    .tabla-wrapper {
+        font-size: 3vw; /* Aumenta el tamaño en dispositivos móviles */
+    }
+}
+
+.container {
+    border: 2px solid #ff4b4b; /* Borde del contenedor */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    max-width: 800px; /* Ancho máximo */
+    width: 100%; /* Ancho al 100% */
+    margin-top: 220px; /* Espacio superior para no estar detrás del menú */
+    background-color: white; /* Fondo blanco para la tabla */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra para efecto de profundidad */
+}
+
+@media (max-width: 768px) { /* Ajuste para pantallas pequeñas */
+    .container {
+        font-size: 3vw; /* Aumenta el tamaño en dispositivos móviles */
+    }
+}
+
+h1 {
+    text-align: center; /* Centrar el título */
+    color: #ff4b4b; /* Color del título */
+}
+
+table {
+    width: 100%; /* Ancho de la tabla al 100% */
+    border-collapse: collapse; /* Colapsar bordes */
+    margin-top: 20px; /* Espaciado superior */
+}
+
+
+
+th, td {
+    border: 1px solid #ccc; /* Bordes de celdas */
+    padding: 10px; /* Espaciado interno de celdas */
+    text-align: center; /* Centrar texto */
+}
+
+th {
+    background-color: #f2f2f2; /* Fondo de encabezados */
+}
+
+select, input[type="number"] {
+    width: 80%; /* Ancho del 80% */
+    padding: 5px; /* Espaciado interno */
+}
+
+.button-cell {
+    text-align: center;
+    padding-top: 15px;
+}
+
+.guardar-btn, .borrar-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.guardar-btn {
+    background-color: #f44336; /* Color verde para guardar */
+}
+
+.guardar-btn:hover {
+    background-color: #e53935;
+}
+
+.borrar-btn {
+    background-color: #f44336; /* Color rojo para borrar */
+}
+
+.borrar-btn:hover {
+    background-color: #e53935;
+}
